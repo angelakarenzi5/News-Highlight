@@ -1,3 +1,4 @@
+{% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,40 +12,35 @@
     <body>
         
             <!-- Top news section  -->
-            <h3> Top News</h3>
+            <h3> General News</h3>
              <ul>
-                {% for top_news in top %}
-                    <li>{{ top_news.title}}</li>
-                {% endfor %}
+                <ul>
+                    {{ macro.displaySourceList(general)}}
+                </ul>
             </ul>
 
            
                 <!-- Business news section  -->
                 <h3> Business News</h3>
                  <ul>
-                    {% for business_news in business %}
-                        <li>{{ business_news.title}}</li>
-                    {% endfor %}
+                    <ul>
+                        {{ macro.displaySourceList(business)}}
+                    </ul>
                 </ul>
 
             <!-- Sports news section  -->
             <h3> Sports News</h3>
              <ul>
-                {% for sports_news in sports %}
-                    <li>{{ sports_news.title}}</li>
-                {% endfor %}
+                <ul>
+                    {{ macro.displaySourceList(sports)}}
+                </ul>
             </ul>
-
-
-  
         <!--Health news section  -->
         <h3> Health News</h3>
          <ul>
-            {% for health_news in health %}
-                <li>{{ health_news.title}}</li>
-            {% endfor %}
-        </ul>
-
+            <ul>
+                {{ macro.displaySourceList(health)}}
+            </ul>
     </body>
 </html>
 
