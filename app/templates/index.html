@@ -1,50 +1,28 @@
-{% extends 'base.html'%}
-{% import 'macros.html' as macro%}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the News highlights website </title>
-        {% endif %}
-    </head>
-    <body>
-        <!-- Content block -->
-        {% block content %}
+<!-- {% extends 'base.html'%}
+{% import 'macros.html' as macro%} -->
 
-            <!-- Top news section  -->
-            <h3> General News</h3>
-             <ul>
-                <ul>
-                    {{ macro.displaySourceList(general)}}
-                </ul>
-            </ul>
+    <!-- Content block -->
+     {% block content %}
 
-           
-                <!-- Business news section  -->
-                <h3> Business News</h3>
-                 <ul>
-                    <ul>
-                        {{ macro.displaySourceList(business)}}
-                    </ul>
-                </ul>
-
+    <!-- General news section  -->
+    <h3> General News</h3>
+    <ul>
+        {{ macro.displaySourceList(general)}}
+    </ul>
+    <!-- Business news section  -->
+    <h3> Business News</h3>
+    <ul>
+         {{ macro.displaySourceList(business)}}
+    </ul>
             <!-- Sports news section  -->
-            <h3> Sports News</h3>
-             <ul>
-                <ul>
-                    {{ macro.displaySourceList(sports)}}
-                </ul>
-            </ul>
+    <h3> Sports News</h3>
+    <ul>
+        {{ macro.displaySourceList(sports)}}
+    </ul>
         <!--Health news section  -->
-        <h3> Health News</h3>
-         <ul>
-            <ul>
-                {{ macro.displaySourceList(health)}}
-            </ul>
-            {% endblock%}
-    </body>
-</html>
-
+    <h3> Health News</h3>
+    <ul>
+        {{ macro.displaySourceList(health)}}
+    </ul>
+{% endblock%}
+    
