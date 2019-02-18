@@ -1,19 +1,8 @@
 from flask import render_template 
 from app import app 
+from .request import get_news
 
 # Views
-@app.route('/')
-def index():
-
-    '''
-    View root page function that returns the news page and its data
-    '''
-
-    title = 'Home - Welcome to The best News Review Website Online'
-    return render_template('news.html', title = title)
-
-    from .request import get_news
-
 @app.route('/')
 def index():
 
@@ -22,25 +11,9 @@ def index():
     '''
 
     # Getting top news
-    top_news = get_news('top')
-    print(top_news)
+    top_news = get_news('general')
+    business_news = get_news('business')
+    sports_news = get_news('sports')
+    health_news = get_news('health')
     title = 'Home - Welcome to The best News Review Website Online'
-    return render_template('index.html', title = title,top = top_news)
-  
-  # Getting sports news
-    breaking_news = get_news('top')
-    print(top_news)
-    title = 'Home - Welcome to The best News Review Website Online'
-    return render_template('index.html', title = title,top = top_news)
-
-# Getting business news
-    breaking_news = get_news('top')
-    print(top_news)
-    title = 'Home - Welcome to The best News Review Website Online'
-    return render_template('index.html', title = title,top = top_news)
-
-# Getting health news
-    breaking_news = get_news('top')
-    print(top_news)
-    title = 'Home - Welcome to The best News Review Website Online'
-    return render_template('index.html', title = title,top = top_news)
+    return render_template('index.html', title = title, top = top_news, business = business_news, sports = sports_news ,health = health_news )
