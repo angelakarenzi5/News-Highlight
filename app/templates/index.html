@@ -1,8 +1,30 @@
-<!-- {% extends 'base.html'%}
-{% import 'macros.html' as macro%} -->
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+<!DOCTYPE html>
+<html>
+ <head>
+        <meta charset="uttf-8">
+        {% if title %}
+        <title>{{ title }} </title>
+        {% endif %}
+   
+    <!-- Styles block -->
 
+    {% block styles%}
+        {{ super() }}
+        <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    {% endblock %}
+ </head>
+ <body>
     <!-- Content block -->
      {% block content %}
+
+    <div class="container">
+        <form>
+            <input type="text" name="soure_query" placeholder="Search for a Source" class="form-control">
+            <input type="submit" value="Submit" class="btn btn-default">
+        </form>
+    </div>
 
     <!-- General news section  -->
     <h3> General News</h3>
@@ -25,4 +47,6 @@
         {{ macro.displaySourceList(health)}}
     </ul>
 {% endblock%}
-    
+</body>
+
+</html>
