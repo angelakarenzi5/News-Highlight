@@ -55,7 +55,7 @@ def get_sources(category):
 
     return source_results
 
-def get_sources(id):
+def get_source(id):
     get_sources_details_url = base_url.format(id,api_key)
 
     with urllib.request.urlopen(get_sources_details_url) as url:
