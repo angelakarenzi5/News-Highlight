@@ -12,6 +12,7 @@ api_key = app.config['NEWS_API_KEY']
 
 # Getting the source base url
 base_url = app.config["SOURCE_API_BASE_URL"]
+article_url = app.config["ARTICLE_API_BASE_URL"]
 
 
 def process_results(source_list):
@@ -62,7 +63,7 @@ def get_articles(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_articles_url = base_url.format(category,api_key)
+    get_articles_url = article_url.format(category,api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
@@ -77,10 +78,8 @@ def get_articles(category):
     return article_results
 
 
-
-
 def get_source(id):
-    get_sources_details_url = base_url.format(id,api_key)
+    get_sources_details_url = article_url.format(id,api_key)
 
     with urllib.request.urlopen(get_sources_details_url) as url:
         source_details_data = url.read()
@@ -101,21 +100,6 @@ def get_source(id):
 
     return source_object
 
-
-def search_source(source_name):
-    search_source_url = 'https://api.thesourcedb.org/3/search/source?api_key={}&query={}'.format(api_key,source_name)
-    
-    with urllib.request.urlopen(search_source_url) as url:
-        search_source_data = url.read()
-        search_source_response = json.loads(search_source_data)
-
-        search_source_results = None
-        if search_source_response['results']:
-            search_source_list = search_source_response['results']
-            search_source_results = process_results(search_source_list)
-
-
-    return search_source_results
 
 def process_articles(article_list):
     '''
@@ -138,7 +122,7 @@ def process_articles(article_list):
         content = article_item.get('content')
 
         if url:
-            artical_object =Article(author,title,description, url, urlToImage,publishedAt,content)
+            article_object =Article(author,title,description, url, urlToImage,publishedAt,content)
             article_results.append(article_object)
 
     return article_results
@@ -147,17 +131,17 @@ def get_articles(source):
     '''
     Function that gets the json response to our url request
     '''
-    get_articles_url = base_url.format(source,api_key)
+    get_articles_url = article_url.format(source,api_key)
 
    
-    with urllib.request.urlopen(get_sources_url) as url:
+    with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
         get_articles_response = json.loads(get_articles_data)
 
-        source_results = None
+        article_results = None
 
         if get_articles_response['articles']:
-            articles_results_list = get_articles_response['articles']
-            articles_results = process_articles(article_results_list)
+            article_results_list = get_articles_response['articles']
+            article_results = process_articles(article_results_list)
 
     return article_results

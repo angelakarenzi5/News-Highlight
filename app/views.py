@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from app import app 
-from .request import get_sources, get_source, search_source
+from .request import get_sources, get_source,get_articles
 
 # Views
 @app.route('/')
@@ -27,24 +27,13 @@ def index():
     else:
         return render_template('index.html',title = title, general = general_news, business = business_news, sports = sports_news ,health = health_news )
 
-@app.route('/source/<id>')
-def source(id):
+@app.route('/source/<source_name>')
+def source(source_name):
 
     '''
     View source page function that returns the source details page and its data
     '''
-    source = get_sources(id)
+    article = get_articles(source_name)
     title = " Welcome to The best News Review Website Online"
 
-    return render_template('news.html',,source = source)
-
-@app.route('/search/<source_name>')
-def search(source_name):
-    '''
-    View function to display the search results
-    '''
-    source_name_list = source_name.split(" ")
-    source_name_format = "+".join(source_name_list)
-    searched_sources = search_source(source_name_format)
-    title = f'search results for {source_name}'
-    return render_template('search.html',sources = searched_sources)
+    return render_template('news.html',title=title,articles=article,source=source_name)
