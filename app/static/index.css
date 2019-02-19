@@ -1,4 +1,29 @@
-#head {
-    background-color:maroon;
+body{
+    background-image: url('https://images.pexels.com/photos/955450/pexels-photo-955450.jpeg');
+    background-size:cover;
+}
+
+h1{
+    text-align:center;
+    color: maroon;
+    font-style:italic;
+    font-size:45px;
+}
+
+h3{
+    font-size:30px;
+    color:black;
     
+}
+
+.text{
+    font-size: 20px;
+    color:black;
+
+}
+
+#one, #two, #three, #four{
+text-align:center;
+color:maroon;
+font-style:cursive; 
 }
