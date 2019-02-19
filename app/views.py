@@ -34,9 +34,9 @@ def source(id):
     View source page function that returns the source details page and its data
     '''
     source = get_sources(id)
-    name = f'{source.name}'
+    title = " Welcome to The best News Review Website Online"
 
-    return render_template('source.html',name = name,source = source)
+    return render_template('news.html',,source = source)
 
 @app.route('/search/<source_name>')
 def search(source_name):
