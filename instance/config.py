@@ -1,2 +1,1 @@
 NEWS_API_KEY = '65f23e20a185406a962fb29e07fbf789'
-SECRET_KEY = '<Flask WTF Secret KEY>'

@@ -1,11 +1,15 @@
-
+{% extends 'bootstrap/base.html'%}
 <!-- Content block -->
+{% block styles%}
+        {{ super() }}
+        <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+    {% endblock %}
 {% block content %}
 <div class="container">
 {% for item in articles %}
     <!-- Poster background -->
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" image>
             <img src={{item.urlToImage}} height='200'>
         </div>
 
@@ -13,6 +17,12 @@
             <h3>{{ item.name }}</h3>
 
             <p class="description"> {{item.description }}</p>
+            <p class="author">{{item.author}}</p>
+            <!-- <p class="content">{{item.content}}</p> -->
+            <p class="Date">Published at: {{item.publishedAt}}</p>
+        </div>
+        <div>
+            <a href={{item.url}}><p>Read more</p></a>
         </div>
     </div>
 {% endfor %}

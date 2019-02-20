@@ -1,23 +1,25 @@
 body{
-    background-image: url('https://images.pexels.com/photos/955450/pexels-photo-955450.jpeg');
+    background-image: url('https://images.pexels.com/photos/983828/pexels-photo-983828.jpeg');
     background-size:cover;
+    background-repeat:no repeat;
 }
 
 h1{
     text-align:center;
-    color: maroon;
-    font-style:italic;
+    color:maroon;
+    font-style:oblique;
     font-size:45px;
+    background-color:rgba(128, 0, 0, 0.247);
 }
 
 h3{
     font-size:30px;
-    color:black;
-    
+    color:rgba(128, 0, 0, 0.473);
+    margin-left:45%;
+    font-style: italic;    
 }
 
 .text{
-    font-size: 20px;
     color:black;
 
 }
@@ -27,3 +29,7 @@ text-align:center;
 color:maroon;
 font-style:cursive; 
 }
+ .general{
+    margin-right:45%;
+    padding: 10px;
+ }
