@@ -17,7 +17,7 @@ News highlight is an application that will help the user list and preview news a
 * In your terminal <br>
 
     $ source <name of virtual environment>/bin/activate<br>
-    $ git clone https://github.com/Anabella1109/News.git<br>
+    $ git clone https://github.com/angelakarenzi5/News-Highlight.git<br>
     $ cd News-Hughlight
 
 ### Running
