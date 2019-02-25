@@ -61,7 +61,7 @@ slack: Angelakarenzi5
 ### License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-Copyright (c) 2019 **TUYISENGE Anabella**
+Copyright (c) 2019 **ANGELA UWASE KARENZI**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
